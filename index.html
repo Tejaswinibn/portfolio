@@ -5,175 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tejaswini Narasimhamurthy | Portfolio</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #0b1220;
-      --card: rgba(255,255,255,0.06);
-      --cardBorder: rgba(255,255,255,0.12);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --brand: #7c3aed; /* violet */
-      --brand2: #22c55e; /* green */
-      --chip: rgba(124,58,237,0.18);
-      --chipBorder: rgba(124,58,237,0.35);
+      --bg:#0b1220;
+      --card:rgba(255,255,255,0.06);
+      --cardBorder:rgba(255,255,255,0.12);
+      --text:rgba(255,255,255,0.92);
+      --muted:rgba(255,255,255,0.70);
+      --brand:#7c3aed;
+      --brand2:#22c55e;
+      --chip:rgba(124,58,237,0.18);
+      --chipBorder:rgba(124,58,237,0.35);
     }
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,0.22), transparent 60%),
-                  radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,0.15), transparent 60%),
-                  var(--bg);
-      color: var(--text);
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Inter',sans-serif;
+      background:radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,0.22), transparent 60%),
+                 radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,0.15), transparent 60%),
+                 var(--bg);
+      color:var(--text);
     }
 
-    /* Navbar */
-    .navbar {
-      backdrop-filter: blur(10px);
-      background: rgba(11,18,32,0.65) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .navbar{
+      backdrop-filter:blur(10px);
+      background:rgba(11,18,32,0.65)!important;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
-    .navbar .nav-link { color: var(--muted) !important; font-weight: 500; }
-    .navbar .nav-link:hover { color: var(--text) !important; }
-    .navbar-brand { color: var(--text) !important; font-weight: 700; letter-spacing: 0.2px; }
+    .navbar .nav-link{color:var(--muted)!important;font-weight:500;}
+    .navbar .nav-link:hover{color:var(--text)!important;}
+    .navbar-brand{color:var(--text)!important;font-weight:700;letter-spacing:0.2px;}
 
-    /* Sections */
-    section { padding: 72px 0; }
-    .section-title { font-weight: 800; letter-spacing: -0.3px; }
-    .section-subtitle { color: var(--muted); max-width: 850px; }
+    section{padding:72px 0;}
+    .section-title{font-weight:800;letter-spacing:-0.3px;}
+    .section-subtitle{color:var(--muted);max-width:900px;}
 
-    /* Hero */
-    .hero {
-      padding: 90px 0 40px 0;
+    .hero{padding:90px 0 40px 0;}
+    .hero-badge{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      color:var(--muted);font-weight:600;font-size:0.92rem;
     }
-    .hero-badge {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.92rem;
+    .hero h1{
+      font-size:clamp(2.1rem, 3.3vw, 3.2rem);
+      font-weight:900;letter-spacing:-0.8px;margin-top:16px;
     }
-    .hero h1 {
-      font-size: clamp(2.1rem, 3.3vw, 3.2rem);
-      font-weight: 900;
-      letter-spacing: -0.8px;
-      margin-top: 16px;
+    .hero p.lead{color:var(--muted);max-width:950px;margin-top:12px;line-height:1.55;}
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand), #4f46e5);
+      border:0;
+      box-shadow:0 10px 25px rgba(124,58,237,0.25);
     }
-    .hero p.lead {
-      color: var(--muted);
-      max-width: 900px;
-      margin-top: 12px;
-      line-height: 1.55;
+    .btn-outline-light{
+      border-color:rgba(255,255,255,0.22);
+      color:var(--text);
     }
-    .hero .btn-primary {
-      background: linear-gradient(135deg, var(--brand), #4f46e5);
-      border: 0;
-      box-shadow: 0 10px 25px rgba(124,58,237,0.25);
-    }
-    .hero .btn-outline-light {
-      border-color: rgba(255,255,255,0.22);
-      color: var(--text);
-    }
-    .hero .btn-outline-light:hover{
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.30);
+    .btn-outline-light:hover{
+      background:rgba(255,255,255,0.08);
+      border-color:rgba(255,255,255,0.30);
     }
 
-    /* Cards */
-    .glass-card {
-      background: var(--card);
-      border: 1px solid var(--cardBorder);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    }
-    .glass-card:hover {
-      transform: translateY(-3px);
-      transition: 0.2s ease;
-      border-color: rgba(255,255,255,0.18);
+    .glass-card{
+      background:var(--card);
+      border:1px solid var(--cardBorder);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.25);
     }
 
-    /* Chips */
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      border: 1px solid var(--chipBorder);
-      color: rgba(255,255,255,0.88);
-      font-size: 0.88rem;
-      font-weight: 600;
-      margin: 6px 8px 0 0;
+    .chip{
+      display:inline-flex;align-items:center;
+      padding:7px 10px;border-radius:999px;
+      background:var(--chip);
+      border:1px solid var(--chipBorder);
+      color:rgba(255,255,255,0.88);
+      font-size:0.88rem;font-weight:600;
+      margin:6px 8px 0 0;
     }
-    .chip.alt {
-      background: rgba(34,197,94,0.14);
-      border-color: rgba(34,197,94,0.30);
+    .chip.alt{
+      background:rgba(34,197,94,0.14);
+      border-color:rgba(34,197,94,0.30);
     }
 
-    /* Project */
-    .project-title { font-weight: 800; letter-spacing: -0.3px; }
-    .project-meta { color: var(--muted); font-size: 0.95rem; }
-    .project-links a {
-      text-decoration: none;
-      font-weight: 700;
-      color: rgba(255,255,255,0.88);
-    }
-    .project-links a:hover { color: #fff; text-decoration: underline; }
+    .kpi{font-weight:900;letter-spacing:-0.3px;font-size:1.25rem;}
+    .kpi-label{color:var(--muted);font-size:0.95rem;}
 
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 18px;
-      border-left: 2px solid rgba(255,255,255,0.16);
+    .timeline{
+      position:relative;
+      padding-left:18px;
+      border-left:2px solid rgba(255,255,255,0.16);
     }
-    .timeline-item {
-      position: relative;
-      padding: 0 0 28px 16px;
+    .timeline-item{
+      position:relative;
+      padding:0 0 28px 16px;
     }
     .timeline-item:before{
       content:"";
       position:absolute;
       left:-9px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand), #4f46e5);
-      box-shadow: 0 0 0 4px rgba(124,58,237,0.18);
+      top:4px;
+      width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(135deg,var(--brand), #4f46e5);
+      box-shadow:0 0 0 4px rgba(124,58,237,0.18);
     }
-    .timeline h5{ font-weight: 800; margin-bottom: 6px; }
-    .timeline .muted { color: var(--muted); }
+    .timeline h5{font-weight:800;margin-bottom:6px;}
+    .muted{color:var(--muted);}
 
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.10);
-      padding: 28px 0;
-      color: var(--muted);
+    footer{
+      border-top:1px solid rgba(255,255,255,0.10);
+      padding:28px 0;
+      color:var(--muted);
     }
-
-    /* Small utilities */
-    .soft { color: var(--muted); }
-    .kpi { font-weight: 900; letter-spacing: -0.3px; font-size: 1.25rem; }
-    .kpi-label { color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#top">Tejaswini</a>
@@ -184,7 +138,7 @@
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#case-studies">Case Studies</a></li>
         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
@@ -195,22 +149,22 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <header id="top" class="hero">
   <div class="container">
     <span class="hero-badge">
       <i class="fa-solid fa-sparkles"></i>
-      Backend-first Full Stack • Java • Python • SQL • APIs • Automation
+      Backend-first Engineer • Java • Python • SQL • APIs • Automation • AI workflows
     </span>
 
     <h1>Tejaswini Narasimhamurthy</h1>
     <p class="lead">
-      I build reliable backend services and data-driven automations. Recently at <b>Abivo.ai</b>, I worked on AI-assisted collections workflows integrated with QuickBooks Online,
-      focusing on integrations, platform reliability, and measurable business outcomes.
+      I build backend services and automation that improve reliability and business outcomes.
+      My recent work includes AI-assisted accounts receivable workflows integrated with QuickBooks Online
+      and production support experience in large-scale insurance systems.
     </p>
 
     <div class="d-flex flex-wrap gap-2 mt-3">
-      <a class="btn btn-primary btn-lg" href="#projects"><i class="fa-solid fa-briefcase me-2"></i>View Projects</a>
+      <a class="btn btn-primary btn-lg" href="#case-studies"><i class="fa-solid fa-briefcase me-2"></i>See Case Studies</a>
       <a class="btn btn-outline-light btn-lg" target="_blank"
          href="https://docs.google.com/document/d/16s89CAIUr4lZLecTDRxHkUVX8xiLn2LxxSOlxiHySak/edit?usp=sharing">
         <i class="fa-solid fa-file-lines me-2"></i>Resume
@@ -223,12 +177,11 @@
       </a>
     </div>
 
-    <!-- KPIs -->
     <div class="row g-3 mt-4">
       <div class="col-md-4">
         <div class="glass-card">
           <div class="kpi">25% ↓</div>
-          <div class="kpi-label">reduction in overdue receivables (Abivo.ai workflow)</div>
+          <div class="kpi-label">reduction in overdue receivables supported (Abivo.ai)</div>
         </div>
       </div>
       <div class="col-md-4">
@@ -240,21 +193,19 @@
       <div class="col-md-4">
         <div class="glass-card">
           <div class="kpi">200+</div>
-          <div class="kpi-label">production incidents resolved (enterprise insurance systems)</div>
+          <div class="kpi-label">production incidents investigated and resolved</div>
         </div>
       </div>
     </div>
-
   </div>
 </header>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <h2 class="section-title">About</h2>
     <p class="section-subtitle">
-      Backend-leaning engineer with experience across Java/Spring Boot APIs, Python automation, SQL analytics, production support, and integrations.
-      I enjoy building systems that are measurable: better reliability, faster workflows, and cleaner data.
+      Backend-leaning engineer with experience across Java/Spring Boot APIs, Python automation, SQL analytics, integrations,
+      and production support. I care about reliability, clean data flows, and building systems that reduce manual work.
     </p>
 
     <div class="mt-3">
@@ -262,101 +213,78 @@
       <span class="chip">Python • FastAPI</span>
       <span class="chip">SQL • Oracle • PostgreSQL</span>
       <span class="chip alt">AI workflows • Prompt engineering</span>
-      <span class="chip">Integrations • OAuth2 • Webhooks</span>
+      <span class="chip">OAuth2 • Webhooks • Integrations</span>
       <span class="chip">CI/CD • Docker</span>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- CASE STUDIES (NO PROJECTS YET) -->
+<section id="case-studies">
   <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
+    <h2 class="section-title">Case Studies</h2>
     <p class="section-subtitle">
-      Picked projects that show API design, backend reliability, data workflows, and production-style engineering. (Quality > quantity.)
+      I’m curating a small set of high-quality case studies (instead of many small demo projects).
+      For now, here are the most relevant work-style case studies based on real experience.
     </p>
 
     <div class="row g-4 mt-2">
-
-      <!-- Project 1 -->
       <div class="col-lg-6">
         <div class="glass-card h-100">
-          <div class="d-flex justify-content-between align-items-start">
-            <div>
-              <div class="project-title">Pawsome Care</div>
-              <div class="project-meta">Pet health management system (MERN)</div>
-            </div>
-            <i class="fa-solid fa-paw fa-lg soft"></i>
-          </div>
-
-          <div class="mt-3 soft">
-            Built a full-stack system for managing pet records, appointments, and clinic workflows with secure APIs and structured data.
-          </div>
-
-          <ul class="mt-3 soft">
-            <li>Implemented CRUD APIs and validation for health records and appointments</li>
-            <li>Designed role-based flows for clinic-side operations</li>
-            <li>Deployed on Vercel with production-ready routing and error handling</li>
+          <h5 class="fw-bold mb-2">AI-assisted Collections Automation (Abivo.ai)</h5>
+          <p class="muted mb-3">
+            Integrated AI-assisted workflows with QuickBooks Online to automate overdue invoice follow-ups and improve cash collection outcomes.
+          </p>
+          <ul class="muted">
+            <li>Worked on QBO integration, OAuth2 flows, and reliable data synchronization</li>
+            <li>Designed prompt workflows for AI-assisted communication templates and call scripts</li>
+            <li>Improved observability using logging, health checks, and debugging support</li>
           </ul>
-
           <div class="mt-2">
-            <span class="chip">MongoDB</span>
-            <span class="chip">Express</span>
-            <span class="chip">React</span>
-            <span class="chip">Node.js</span>
+            <span class="chip">Python</span>
+            <span class="chip">APIs</span>
+            <span class="chip">SQL</span>
+            <span class="chip alt">AI workflows</span>
+            <span class="chip">QuickBooks Online</span>
           </div>
-
-          <div class="project-links mt-3 d-flex gap-3 flex-wrap">
-            <a href="https://pawsome-care-iota.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Live</a>
-            <a href="https://github.com/heer-dev/Pawsome-Care" target="_blank"><i class="fa-brands fa-github me-1"></i>Code</a>
+          <div class="muted mt-3">
+            Outcome: supported 25% reduction in overdue receivables and ~\$250K CAD recovered.
           </div>
         </div>
       </div>
 
-      <!-- Project 2 -->
       <div class="col-lg-6">
         <div class="glass-card h-100">
-          <div class="d-flex justify-content-between align-items-start">
-            <div>
-              <div class="project-title">Video Store App</div>
-              <div class="project-meta">Frontend + business logic (JavaScript)</div>
-            </div>
-            <i class="fa-solid fa-film fa-lg soft"></i>
-          </div>
-
-          <div class="mt-3 soft">
-            A clean app showcasing UI logic, state handling, and user-friendly flows. Good for recruiters to quickly evaluate code quality and clarity.
-          </div>
-
-          <ul class="mt-3 soft">
-            <li>Built a responsive catalog UI with filtering and user actions</li>
-            <li>Structured logic for rentals and interactive flows</li>
-            <li>Focused on readability and maintainable components</li>
+          <h5 class="fw-bold mb-2">Enterprise Insurance Platform Support</h5>
+          <p class="muted mb-3">
+            Backend services, SQL troubleshooting, and production support work on large-scale insurance systems.
+          </p>
+          <ul class="muted">
+            <li>Investigated and resolved 200+ incidents across backend and database layers</li>
+            <li>Supported API changes, testing, and release validation in Agile environments</li>
+            <li>Improved maintainability through modernization work (Spring Boot adoption)</li>
           </ul>
-
           <div class="mt-2">
-            <span class="chip">JavaScript</span>
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-          </div>
-
-          <div class="project-links mt-3 d-flex gap-3 flex-wrap">
-            <a href="https://video-store-chi.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Live</a>
-            <a href="https://github.com/Tejaswinibn/video-store" target="_blank"><i class="fa-brands fa-github me-1"></i>Code</a>
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">Oracle SQL</span>
+            <span class="chip">Production Support</span>
+            <span class="chip">CI/CD</span>
           </div>
         </div>
       </div>
 
-      <!-- Optional "Add more later" card -->
       <div class="col-12">
         <div class="glass-card">
           <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
             <div>
-              <div class="project-title">Want this to look even stronger?</div>
-              <div class="project-meta">Add 1 backend-heavy project: FastAPI + Postgres + Auth + Deploy</div>
+              <h5 class="fw-bold mb-1">Projects are coming back soon (curated)</h5>
+              <div class="muted">
+                Next additions: one backend-heavy API project (auth, database, deployment) and one analytics automation project.
+              </div>
             </div>
-            <div class="soft">
-              If you share one more GitHub repo (or idea), I’ll rewrite it into a “case study” card like above.
+            <div class="muted">
+              If you want, I can suggest 2 project ideas tailored to TD/CIBC and outline exactly what to build.
             </div>
           </div>
         </div>
@@ -366,63 +294,61 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
-    <h2 class="section-title">Experience Highlights</h2>
+    <h2 class="section-title">Experience</h2>
     <p class="section-subtitle">
-      Focused on impact, systems, integrations, and reliability. Dates below are kept consistent with your resume timeline.
+      Highlighted for recruiters: impact, reliability work, integrations, and production support.
     </p>
 
     <div class="timeline mt-4">
       <div class="timeline-item">
         <h5>Backend Developer (Co-op), Abivo.ai</h5>
         <div class="muted">Toronto, ON • Sep 2025 – Dec 2025</div>
-        <ul class="mt-2 soft">
-          <li>Worked on AI-assisted collections workflows integrated with QuickBooks Online to automate follow-ups for overdue invoices</li>
-          <li>Supported measurable outcomes: 25% reduction in overdue receivables and ~250K CAD recovered through improved outreach</li>
-          <li>Built integrations (OAuth2, webhooks) and backend services to sync financial data reliably for automated actions</li>
-          <li>Improved platform operability with health checks, logging, and debugging support</li>
+        <ul class="mt-2 muted">
+          <li>Implemented AI-assisted collections workflows integrated with QuickBooks Online</li>
+          <li>Supported 25% reduction in overdue receivables and ~\$250K CAD recovery through improved outreach flows</li>
+          <li>Worked on OAuth2 integrations, webhook handling, and reliable data synchronization</li>
+          <li>Improved platform operability through health checks, logging, and debugging support</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <h5>Application Development Analyst, Accenture</h5>
         <div class="muted">Bengaluru, India • Jul 2022 – Jul 2023</div>
-        <ul class="mt-2 soft">
-          <li>Built and maintained Java/Spring Boot services and REST APIs for a large-scale insurance platform</li>
-          <li>Optimized SQL queries and supported release cycles and post-production validation</li>
-          <li>Collaborated in Agile sprints with QA, DevOps, and business teams to ship stable features</li>
+        <ul class="mt-2 muted">
+          <li>Built and maintained Java/Spring Boot services and REST APIs for large-scale insurance platforms</li>
+          <li>Used SQL for reporting, validation, and performance troubleshooting</li>
+          <li>Collaborated in Agile sprints to support stable releases and production readiness</li>
         </ul>
       </div>
 
       <div class="timeline-item">
         <h5>Software Engineer, Tata Consultancy Services (Client: Aviva Insurance)</h5>
         <div class="muted">Bengaluru, India • Aug 2021 – Jul 2022</div>
-        <ul class="mt-2 soft">
-          <li>Resolved 200+ production incidents across backend services and database layers</li>
-          <li>Assisted modernization work by migrating modules into Spring Boot services and improving test coverage</li>
-          <li>Wrote SQL queries for troubleshooting and reporting support</li>
+        <ul class="mt-2 muted">
+          <li>Investigated and resolved 200+ production incidents across backend and database layers</li>
+          <li>Supported modernization work by assisting migration to Spring Boot services and improving tests</li>
+          <li>Wrote SQL queries for troubleshooting, reporting support, and data checks</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <h2 class="section-title">Skills</h2>
-    <p class="section-subtitle">Grouped the way recruiters scan: backend, data, reliability, automation.</p>
+    <p class="section-subtitle">Grouped the way recruiters scan quickly.</p>
 
     <div class="row g-3 mt-2">
       <div class="col-md-6">
         <div class="glass-card h-100">
-          <div class="project-title">Backend & APIs</div>
-          <div class="mt-2">
+          <h5 class="fw-bold mb-2">Backend and APIs</h5>
+          <div>
             <span class="chip">Java</span>
             <span class="chip">Spring Boot</span>
-            <span class="chip">REST</span>
+            <span class="chip">REST APIs</span>
             <span class="chip">OAuth2</span>
             <span class="chip">Webhooks</span>
           </div>
@@ -430,8 +356,8 @@
       </div>
       <div class="col-md-6">
         <div class="glass-card h-100">
-          <div class="project-title">Data & Automation</div>
-          <div class="mt-2">
+          <h5 class="fw-bold mb-2">Data and Automation</h5>
+          <div>
             <span class="chip">Python</span>
             <span class="chip">FastAPI</span>
             <span class="chip">SQL</span>
@@ -442,8 +368,8 @@
       </div>
       <div class="col-md-6">
         <div class="glass-card h-100">
-          <div class="project-title">Reliability & Delivery</div>
-          <div class="mt-2">
+          <h5 class="fw-bold mb-2">Reliability and Delivery</h5>
+          <div>
             <span class="chip">CI/CD</span>
             <span class="chip">Docker</span>
             <span class="chip">Logging</span>
@@ -453,8 +379,8 @@
       </div>
       <div class="col-md-6">
         <div class="glass-card h-100">
-          <div class="project-title">AI Workflows</div>
-          <div class="mt-2">
+          <h5 class="fw-bold mb-2">AI Workflows</h5>
+          <div>
             <span class="chip alt">Prompt engineering</span>
             <span class="chip alt">Template generation</span>
             <span class="chip alt">AI-assisted automation</span>
@@ -462,11 +388,9 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section id="education">
   <div class="container">
     <h2 class="section-title">Education</h2>
@@ -474,75 +398,78 @@
     <div class="row g-3 mt-2">
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">Seneca Polytechnic</div>
-          <div class="soft mt-1">Database Application Development</div>
-          <div class="soft">2023 – 2024</div>
+          <h5 class="fw-bold mb-1">Seneca Polytechnic</h5>
+          <div class="muted">Database Application Development</div>
+          <div class="muted">2023 – 2024</div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">Seneca Polytechnic</div>
-          <div class="soft mt-1">Business Insight Analytics</div>
-          <div class="soft">2024 – 2025</div>
+          <h5 class="fw-bold mb-1">Seneca Polytechnic</h5>
+          <div class="muted">Business Insight Analytics</div>
+          <div class="muted">2024 – 2025</div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">VTU (India)</div>
-          <div class="soft mt-1">B.E. Computer Science</div>
-          <div class="soft">2017 – 2021</div>
+          <h5 class="fw-bold mb-1">VTU (India)</h5>
+          <div class="muted">B.E. Computer Science</div>
+          <div class="muted">2017 – 2021</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
 <section id="certs">
   <div class="container">
     <h2 class="section-title">Certifications</h2>
-    <p class="section-subtitle">Listed separately so your experience doesn’t accidentally claim cloud usage you didn’t do daily.</p>
+    <p class="section-subtitle">Shown here, separate from work experience.</p>
 
     <div class="row g-3 mt-2">
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">AWS Cloud Practitioner</div>
-          <div class="soft mt-1">Certification</div>
+          <h5 class="fw-bold mb-1">AWS Cloud Practitioner</h5>
+          <div class="muted">Certification</div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">Oracle OCI Foundations Associate</div>
-          <div class="soft mt-1">Certification</div>
+          <h5 class="fw-bold mb-1">Oracle OCI Foundations Associate</h5>
+          <div class="muted">Certification</div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="glass-card h-100">
-          <div class="project-title">Oracle Cloud Database Migration & Integration</div>
-          <div class="soft mt-1">Certification</div>
+          <h5 class="fw-bold mb-1">Oracle Cloud Database Migration and Integration</h5>
+          <div class="muted">Certification</div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">If you like what you see, I’d love to connect.</p>
+    <p class="section-subtitle">If you want to connect about backend, platform, or automation roles, feel free to reach out.</p>
 
     <div class="glass-card mt-3">
       <div class="row g-3 align-items-center">
         <div class="col-md-8">
-          <div class="soft"><i class="fa-solid fa-location-dot me-2"></i>Toronto, ON (M1T 2L8)</div>
-          <div class="soft mt-1"><i class="fa-solid fa-envelope me-2"></i><a class="text-decoration-none text-white" href="mailto:tejuvashishta@gmail.com">tejuvashishta@gmail.com</a></div>
-          <div class="soft mt-1"><i class="fa-solid fa-phone me-2"></i>+1 437 661 4051</div>
+          <div class="muted"><i class="fa-solid fa-location-dot me-2"></i>Toronto, ON (M1T 2L8)</div>
+          <div class="muted mt-1"><i class="fa-solid fa-envelope me-2"></i>
+            <a class="text-decoration-none text-white" href="mailto:tejuvashishta@gmail.com">tejuvashishta@gmail.com</a>
+          </div>
+          <div class="muted mt-1"><i class="fa-solid fa-phone me-2"></i>+1 437 661 4051</div>
         </div>
         <div class="col-md-4 text-md-end">
-          <a class="btn btn-outline-light me-2 mb-2" target="_blank" href="https://github.com/Tejaswinibn"><i class="fa-brands fa-github me-2"></i>GitHub</a>
-          <a class="btn btn-primary mb-2" target="_blank" href="https://www.linkedin.com/in/tejaswini-narasimhamurthy"><i class="fa-brands fa-linkedin me-2"></i>LinkedIn</a>
+          <a class="btn btn-outline-light me-2 mb-2" target="_blank" href="https://github.com/Tejaswinibn">
+            <i class="fa-brands fa-github me-2"></i>GitHub
+          </a>
+          <a class="btn btn-primary mb-2" target="_blank" href="https://www.linkedin.com/in/tejaswini-narasimhamurthy">
+            <i class="fa-brands fa-linkedin me-2"></i>LinkedIn
+          </a>
         </div>
       </div>
     </div>
@@ -552,7 +479,7 @@
 <footer>
   <div class="container d-flex justify-content-between flex-wrap gap-2">
     <div>Tejaswini Narasimhamurthy © <span id="year"></span></div>
-    <div class="soft">Built with Bootstrap • Deployed on Vercel</div>
+    <div class="muted">Built with Bootstrap • Deployed on Vercel</div>
   </div>
 </footer>
 
