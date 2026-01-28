@@ -1,69 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tejaswini Narasimhamurthy | Portfolio</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {font-family: 'Poppins', sans-serif; background: #f5f5f5; color: #333; scroll-behavior: smooth;}
-    section {padding: 60px 20px;}
-    .card, .timeline-item {transition: transform 0.3s ease, box-shadow 0.3s ease;}
-    .card:hover, .timeline-item:hover {transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2);}
-    nav a {margin: 0 15px; text-decoration: none; font-weight: 500; color: #333;}
-    footer {background: #333; color: #fff; text-align: center; padding: 20px 10px;}
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --cardBorder: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --brand: #7c3aed; /* violet */
+      --brand2: #22c55e; /* green */
+      --chip: rgba(124,58,237,0.18);
+      --chipBorder: rgba(124,58,237,0.35);
+    }
 
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,0.22), transparent 60%),
+                  radial-gradient(900px 600px at 85% 15%, rgba(34,197,94,0.15), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.65) !important;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .navbar .nav-link { color: var(--muted) !important; font-weight: 500; }
+    .navbar .nav-link:hover { color: var(--text) !important; }
+    .navbar-brand { color: var(--text) !important; font-weight: 700; letter-spacing: 0.2px; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .section-title { font-weight: 800; letter-spacing: -0.3px; }
+    .section-subtitle { color: var(--muted); max-width: 850px; }
+
+    /* Hero */
     .hero {
-      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUdYQVYOj3ITDtEQYTAoe3EJaibuf_WDtfRQ&s') center/cover no-repeat;
-      color: white; padding: 120px 20px; text-align: center; position: relative; overflow: hidden;
+      padding: 90px 0 40px 0;
     }
-    .hero::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6); z-index: 0;
+    .hero-badge {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.92rem;
     }
-    .hero h1, .hero p {position: relative; z-index: 1;}
-    .typed-text {color: #FFD700; font-weight: 600;}
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.3vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin-top: 16px;
+    }
+    .hero p.lead {
+      color: var(--muted);
+      max-width: 900px;
+      margin-top: 12px;
+      line-height: 1.55;
+    }
+    .hero .btn-primary {
+      background: linear-gradient(135deg, var(--brand), #4f46e5);
+      border: 0;
+      box-shadow: 0 10px 25px rgba(124,58,237,0.25);
+    }
+    .hero .btn-outline-light {
+      border-color: rgba(255,255,255,0.22);
+      color: var(--text);
+    }
+    .hero .btn-outline-light:hover{
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.30);
+    }
 
-    .timeline {position: relative; border-left: 3px solid #473f39; margin-left: 20px; padding-left: 20px;}
-    .timeline::before {content: ''; position: absolute; top: 0; left: -6px; width: 12px; height: 12px; background: #473f39; border-radius: 50%;}
-    .timeline-item {margin-bottom: 40px; position: relative;}
-    .timeline-item::before {content: ''; position: absolute; top: 10px; left: -25px; width: 12px; height: 12px; background: #473f39; border-radius: 50%;}
-
-    .skills-container {display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;}
-    .skill-pill {
-      background: #473f39; color: #fff; padding: 10px 20px; border-radius: 25px;
-      font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; cursor: default;
+    /* Cards */
+    .glass-card {
+      background: var(--card);
+      border: 1px solid var(--cardBorder);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     }
-    .skill-pill:hover {background: #FFD700; color: #473f39; transform: translateY(-3px);}
-
-    .certification-badge {
-      background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 20px; 
-      margin: 10px 0; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s; text-align: center; min-height: 180px;
-      display: flex; justify-content: center; align-items: center; flex-direction: column;
+    .glass-card:hover {
+      transform: translateY(-3px);
+      transition: 0.2s ease;
+      border-color: rgba(255,255,255,0.18);
     }
+
+    /* Chips */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--chipBorder);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin: 6px 8px 0 0;
+    }
+    .chip.alt {
+      background: rgba(34,197,94,0.14);
+      border-color: rgba(34,197,94,0.30);
+    }
+
+    /* Project */
+    .project-title { font-weight: 800; letter-spacing: -0.3px; }
+    .project-meta { color: var(--muted); font-size: 0.95rem; }
+    .project-links a {
+      text-decoration: none;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+    }
+    .project-links a:hover { color: #fff; text-decoration: underline; }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 18px;
+      border-left: 2px solid rgba(255,255,255,0.16);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 28px 16px;
+    }
+    .timeline-item:before{
+      content:"";
+      position:absolute;
+      left:-9px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), #4f46e5);
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.18);
+    }
+    .timeline h5{ font-weight: 800; margin-bottom: 6px; }
+    .timeline .muted { color: var(--muted); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding: 28px 0;
+      color: var(--muted);
+    }
+
+    /* Small utilities */
+    .soft { color: var(--muted); }
+    .kpi { font-weight: 900; letter-spacing: -0.3px; font-size: 1.25rem; }
+    .kpi-label { color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="#">Tejaswini</a>
-    <div class="collapse navbar-collapse">
+    <a class="navbar-brand" href="#top">Tejaswini</a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certs">Certifications</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -71,62 +196,269 @@
 </nav>
 
 <!-- HERO -->
-<header class="hero" data-aos="fade-down">
-  <h1>Tejaswini Narasimhamurthy</h1>
-  <p><span class="typed-text" id="typed"></span></p>
-</header>
+<header id="top" class="hero">
+  <div class="container">
+    <span class="hero-badge">
+      <i class="fa-solid fa-sparkles"></i>
+      Backend-first Full Stack • Java • Python • SQL • APIs • Automation
+    </span>
 
-<!-- ABOUT -->
-<section id="about" class="container" data-aos="fade-up">
-  <h2>About Me</h2>
-  <p>Backend-leaning Full Stack Developer with 3+ years of experience building Java/Spring Boot APIs, Python/FastAPI microservices, and cloud-ready applications. Skilled in SQL optimization, API development, and scalable backend architecture. Comfortable across the full stack and experienced with cloud platforms like AWS and OCI.</p>
-</section>
+    <h1>Tejaswini Narasimhamurthy</h1>
+    <p class="lead">
+      I build reliable backend services and data-driven automations. Recently at <b>Abivo.ai</b>, I worked on AI-assisted collections workflows integrated with QuickBooks Online,
+      focusing on integrations, platform reliability, and measurable business outcomes.
+    </p>
 
-<!-- SKILLS -->
-<section id="skills" class="container" data-aos="fade-up">
-  <h2>Skills</h2>
-  <div class="skills-container">
-    <span class="skill-pill">Java</span>
-    <span class="skill-pill">Spring Boot</span>
-    <span class="skill-pill">Python</span>
-    <span class="skill-pill">FastAPI</span>
-    <span class="skill-pill">JavaScript</span>
-    <span class="skill-pill">React</span>
-    <span class="skill-pill">Node.js</span>
-    <span class="skill-pill">PostgreSQL</span>
-    <span class="skill-pill">MySQL</span>
-    <span class="skill-pill">Oracle</span>
-    <span class="skill-pill">Docker</span>
-    <span class="skill-pill">AWS</span>
-    <span class="skill-pill">CI/CD</span>
-    <span class="skill-pill">JUnit</span>
-    <span class="skill-pill">Postman</span>
-  </div>
-</section>
+    <div class="d-flex flex-wrap gap-2 mt-3">
+      <a class="btn btn-primary btn-lg" href="#projects"><i class="fa-solid fa-briefcase me-2"></i>View Projects</a>
+      <a class="btn btn-outline-light btn-lg" target="_blank"
+         href="https://docs.google.com/document/d/16s89CAIUr4lZLecTDRxHkUVX8xiLn2LxxSOlxiHySak/edit?usp=sharing">
+        <i class="fa-solid fa-file-lines me-2"></i>Resume
+      </a>
+      <a class="btn btn-outline-light btn-lg" target="_blank" href="https://github.com/Tejaswinibn">
+        <i class="fa-brands fa-github me-2"></i>GitHub
+      </a>
+      <a class="btn btn-outline-light btn-lg" target="_blank" href="https://www.linkedin.com/in/tejaswini-narasimhamurthy">
+        <i class="fa-brands fa-linkedin me-2"></i>LinkedIn
+      </a>
+    </div>
 
-<!-- PROJECTS -->
-<section id="projects" class="container" data-aos="fade-up">
-  <h2>Projects</h2>
-  <div class="row">
-
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Pawsome Care – Pet Management System</h5>
-          <p class="card-text">Full-stack MERN app to manage pet health records, appointments, and clinic workflows.</p>
-          <a href="https://pawsome-care-iota.vercel.app/" class="btn btn-outline-primary" target="_blank">Live Demo</a>
-          <a href="https://github.com/heer-dev/Pawsome-Care" class="btn btn-outline-dark" target="_blank">GitHub</a>
+    <!-- KPIs -->
+    <div class="row g-3 mt-4">
+      <div class="col-md-4">
+        <div class="glass-card">
+          <div class="kpi">25% ↓</div>
+          <div class="kpi-label">reduction in overdue receivables (Abivo.ai workflow)</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card">
+          <div class="kpi">~$250K</div>
+          <div class="kpi-label">overdue payments supported in recovery efforts</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card">
+          <div class="kpi">200+</div>
+          <div class="kpi-label">production incidents resolved (enterprise insurance systems)</div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Video Store App</h5>
-          <p class="card-text">JS-based movie rental app with live demo and source code.</p>
-          <a href="https://video-store-chi.vercel.app/" class="btn btn-outline-primary" target="_blank">Live Demo</a>
-          <a href="https://github.com/Tejaswinibn/video-store" class="btn btn-outline-dark" target="_blank">GitHub</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <p class="section-subtitle">
+      Backend-leaning engineer with experience across Java/Spring Boot APIs, Python automation, SQL analytics, production support, and integrations.
+      I enjoy building systems that are measurable: better reliability, faster workflows, and cleaner data.
+    </p>
+
+    <div class="mt-3">
+      <span class="chip">Java • Spring Boot</span>
+      <span class="chip">Python • FastAPI</span>
+      <span class="chip">SQL • Oracle • PostgreSQL</span>
+      <span class="chip alt">AI workflows • Prompt engineering</span>
+      <span class="chip">Integrations • OAuth2 • Webhooks</span>
+      <span class="chip">CI/CD • Docker</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">
+      Picked projects that show API design, backend reliability, data workflows, and production-style engineering. (Quality > quantity.)
+    </p>
+
+    <div class="row g-4 mt-2">
+
+      <!-- Project 1 -->
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="project-title">Pawsome Care</div>
+              <div class="project-meta">Pet health management system (MERN)</div>
+            </div>
+            <i class="fa-solid fa-paw fa-lg soft"></i>
+          </div>
+
+          <div class="mt-3 soft">
+            Built a full-stack system for managing pet records, appointments, and clinic workflows with secure APIs and structured data.
+          </div>
+
+          <ul class="mt-3 soft">
+            <li>Implemented CRUD APIs and validation for health records and appointments</li>
+            <li>Designed role-based flows for clinic-side operations</li>
+            <li>Deployed on Vercel with production-ready routing and error handling</li>
+          </ul>
+
+          <div class="mt-2">
+            <span class="chip">MongoDB</span>
+            <span class="chip">Express</span>
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+          </div>
+
+          <div class="project-links mt-3 d-flex gap-3 flex-wrap">
+            <a href="https://pawsome-care-iota.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Live</a>
+            <a href="https://github.com/heer-dev/Pawsome-Care" target="_blank"><i class="fa-brands fa-github me-1"></i>Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-lg-6">
+        <div class="glass-card h-100">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <div class="project-title">Video Store App</div>
+              <div class="project-meta">Frontend + business logic (JavaScript)</div>
+            </div>
+            <i class="fa-solid fa-film fa-lg soft"></i>
+          </div>
+
+          <div class="mt-3 soft">
+            A clean app showcasing UI logic, state handling, and user-friendly flows. Good for recruiters to quickly evaluate code quality and clarity.
+          </div>
+
+          <ul class="mt-3 soft">
+            <li>Built a responsive catalog UI with filtering and user actions</li>
+            <li>Structured logic for rentals and interactive flows</li>
+            <li>Focused on readability and maintainable components</li>
+          </ul>
+
+          <div class="mt-2">
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+          </div>
+
+          <div class="project-links mt-3 d-flex gap-3 flex-wrap">
+            <a href="https://video-store-chi.vercel.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Live</a>
+            <a href="https://github.com/Tejaswinibn/video-store" target="_blank"><i class="fa-brands fa-github me-1"></i>Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional "Add more later" card -->
+      <div class="col-12">
+        <div class="glass-card">
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+            <div>
+              <div class="project-title">Want this to look even stronger?</div>
+              <div class="project-meta">Add 1 backend-heavy project: FastAPI + Postgres + Auth + Deploy</div>
+            </div>
+            <div class="soft">
+              If you share one more GitHub repo (or idea), I’ll rewrite it into a “case study” card like above.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience Highlights</h2>
+    <p class="section-subtitle">
+      Focused on impact, systems, integrations, and reliability. Dates below are kept consistent with your resume timeline.
+    </p>
+
+    <div class="timeline mt-4">
+      <div class="timeline-item">
+        <h5>Backend Developer (Co-op), Abivo.ai</h5>
+        <div class="muted">Toronto, ON • Sep 2025 – Dec 2025</div>
+        <ul class="mt-2 soft">
+          <li>Worked on AI-assisted collections workflows integrated with QuickBooks Online to automate follow-ups for overdue invoices</li>
+          <li>Supported measurable outcomes: 25% reduction in overdue receivables and ~250K CAD recovered through improved outreach</li>
+          <li>Built integrations (OAuth2, webhooks) and backend services to sync financial data reliably for automated actions</li>
+          <li>Improved platform operability with health checks, logging, and debugging support</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h5>Application Development Analyst, Accenture</h5>
+        <div class="muted">Bengaluru, India • Jul 2022 – Jul 2023</div>
+        <ul class="mt-2 soft">
+          <li>Built and maintained Java/Spring Boot services and REST APIs for a large-scale insurance platform</li>
+          <li>Optimized SQL queries and supported release cycles and post-production validation</li>
+          <li>Collaborated in Agile sprints with QA, DevOps, and business teams to ship stable features</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h5>Software Engineer, Tata Consultancy Services (Client: Aviva Insurance)</h5>
+        <div class="muted">Bengaluru, India • Aug 2021 – Jul 2022</div>
+        <ul class="mt-2 soft">
+          <li>Resolved 200+ production incidents across backend services and database layers</li>
+          <li>Assisted modernization work by migrating modules into Spring Boot services and improving test coverage</li>
+          <li>Wrote SQL queries for troubleshooting and reporting support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Grouped the way recruiters scan: backend, data, reliability, automation.</p>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-6">
+        <div class="glass-card h-100">
+          <div class="project-title">Backend & APIs</div>
+          <div class="mt-2">
+            <span class="chip">Java</span>
+            <span class="chip">Spring Boot</span>
+            <span class="chip">REST</span>
+            <span class="chip">OAuth2</span>
+            <span class="chip">Webhooks</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="glass-card h-100">
+          <div class="project-title">Data & Automation</div>
+          <div class="mt-2">
+            <span class="chip">Python</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Oracle</span>
+            <span class="chip">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="glass-card h-100">
+          <div class="project-title">Reliability & Delivery</div>
+          <div class="mt-2">
+            <span class="chip">CI/CD</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Logging</span>
+            <span class="chip">Testing</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="glass-card h-100">
+          <div class="project-title">AI Workflows</div>
+          <div class="mt-2">
+            <span class="chip alt">Prompt engineering</span>
+            <span class="chip alt">Template generation</span>
+            <span class="chip alt">AI-assisted automation</span>
+          </div>
         </div>
       </div>
     </div>
@@ -135,94 +467,60 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="container" data-aos="fade-up">
-  <h2>Education</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <h5>Postgraduate Certificate: Database Application Development</h5>
-      <p>Seneca Polytechnic, Toronto, ON</p>
-    </div>
-    <div class="timeline-item">
-      <h5>Postgraduate Certificate: Business Analytics</h5>
-      <p>Seneca Polytechnic, Toronto, ON</p>
-    </div>
-    <div class="timeline-item">
-      <h5>Bachelor of Engineering: Computer Science</h5>
-      <p>Visveswaraya Technological University, Bengaluru, India</p>
-    </div>
-  </div>
-</section>
+<section id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="container" data-aos="fade-up">
-  <h2 class="text-center mb-5">Experience</h2>
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <h5>Backend Developer (Co-op) – Abivo.ai</h5>
-      <p>Toronto, ON | Sep 2024 – Present</p>
-      <ul>
-        <li>Developed Python/FastAPI microservices for ingestion, API integrations, and analytics workflows.</li>
-        <li>Implemented secure CSV upload validation and schema-based data processing.</li>
-        <li>Integrated QuickBooks APIs and event webhooks using OAuth2 and HMAC verification.</li>
-        <li>Containerized services using Docker and enhanced deployment with health checks and logging.</li>
-      </ul>
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">Seneca Polytechnic</div>
+          <div class="soft mt-1">Database Application Development</div>
+          <div class="soft">2023 – 2024</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">Seneca Polytechnic</div>
+          <div class="soft mt-1">Business Insight Analytics</div>
+          <div class="soft">2024 – 2025</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">VTU (India)</div>
+          <div class="soft mt-1">B.E. Computer Science</div>
+          <div class="soft">2017 – 2021</div>
+        </div>
+      </div>
     </div>
-
-    <div class="timeline-item">
-      <h5>STEM Experience Manager – Ultimate Coders</h5>
-      <p>Markham, ON | Oct 2023 – Present</p>
-      <ul>
-        <li>Lead coding and robotics programs for 200+ students.</li>
-        <li>Developed Python and JavaScript learning modules to improve student performance.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <h5>Application Development Analyst – Accenture</h5>
-      <p>Bengaluru, India | Jul 2022 – Jul 2023</p>
-      <ul>
-        <li>Built REST APIs using Java, Spring Boot, and AWS Lambda for insurance platforms.</li>
-        <li>Optimized SQL queries and added caching to reduce API latency by 30%.</li>
-        <li>Maintained CI/CD pipelines with Jenkins and Docker.</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <h5>Software Engineer – Tata Consultancy Services</h5>
-      <p>Bengaluru, India | Aug 2021 – Jul 2022</p>
-      <ul>
-        <li>Developed 20+ REST APIs for insurance modules while migrating legacy systems.</li>
-        <li>Resolved backend defects and wrote unit tests using JUnit.</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications" class="container" data-aos="zoom-in">
-  <h2 class="text-center mb-5">Certifications</h2>
-  <div class="row">
+<section id="certs">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-subtitle">Listed separately so your experience doesn’t accidentally claim cloud usage you didn’t do daily.</p>
 
-    <div class="col-md-4">
-      <div class="certification-badge">
-        <h5>Oracle Certified</h5>
-        <p>Cloud Database Migration & Integration</p>
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">AWS Cloud Practitioner</div>
+          <div class="soft mt-1">Certification</div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="certification-badge">
-        <h5>Oracle OCI</h5>
-        <p>Foundations Associate</p>
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">Oracle OCI Foundations Associate</div>
+          <div class="soft mt-1">Certification</div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="certification-badge">
-        <h5>AWS Cloud Practitioner</h5>
-        <p>Amazon Web Services</p>
+      <div class="col-md-4">
+        <div class="glass-card h-100">
+          <div class="project-title">Oracle Cloud Database Migration & Integration</div>
+          <div class="soft mt-1">Certification</div>
+        </div>
       </div>
     </div>
 
@@ -230,32 +528,38 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="container text-center" data-aos="fade-up">
-  <h2>Contact Me</h2>
-  <p>Email: tejuvashishta@gmail.com | Phone: +1 437-661-4051</p>
-  <a href="https://github.com/Tejaswinibn" class="btn btn-dark m-2" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-  <a href="https://www.linkedin.com/in/tejaswini-narasimhamurthy-a72682196/" class="btn btn-primary m-2" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-  <a href="https://docs.google.com/document/d/16s89CAIUr4lZLecTDRxHkUVX8xiLn2LxxSOlxiHySak/edit?usp=sharing" class="btn btn-success m-2" target="_blank"><i class="fas fa-file-download"></i> Resume</a>
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">If you like what you see, I’d love to connect.</p>
+
+    <div class="glass-card mt-3">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-8">
+          <div class="soft"><i class="fa-solid fa-location-dot me-2"></i>Toronto, ON (M1T 2L8)</div>
+          <div class="soft mt-1"><i class="fa-solid fa-envelope me-2"></i><a class="text-decoration-none text-white" href="mailto:tejuvashishta@gmail.com">tejuvashishta@gmail.com</a></div>
+          <div class="soft mt-1"><i class="fa-solid fa-phone me-2"></i>+1 437 661 4051</div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a class="btn btn-outline-light me-2 mb-2" target="_blank" href="https://github.com/Tejaswinibn"><i class="fa-brands fa-github me-2"></i>GitHub</a>
+          <a class="btn btn-primary mb-2" target="_blank" href="https://www.linkedin.com/in/tejaswini-narasimhamurthy"><i class="fa-brands fa-linkedin me-2"></i>LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <p>Tejaswini Narasimhamurthy © 2025 | All Rights Reserved</p>
+  <div class="container d-flex justify-content-between flex-wrap gap-2">
+    <div>Tejaswini Narasimhamurthy © <span id="year"></span></div>
+    <div class="soft">Built with Bootstrap • Deployed on Vercel</div>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  AOS.init();
-
-  var typed = new Typed('#typed', {
-    strings: ["Backend Developer", "Full-Stack Developer", "Java Developer", "Python Developer"],
-    typeSpeed: 80,
-    backSpeed: 50,
-    loop: true
-  });
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
-
